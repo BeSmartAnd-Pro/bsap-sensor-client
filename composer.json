@@ -1,0 +1,61 @@
+{
+    "name": "besmartand-pro/bsap-sensor-client",
+    "description": "Framework-independent PHP client for the BeSmartAnd.Pro Sensor API.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BeSmartAnd.Pro",
+            "email": "hello@BeSmartAnd.Pro",
+            "homepage": "https://BeSmartAnd.Pro"
+        }
+    ],
+    "keywords": [
+        "sensor",
+        "api",
+        "temperature",
+        "php"
+    ],
+    "require": {
+        "php": "^8.4",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "psr/http-message": "^1.1 || ^2.0"
+    },
+    "require-dev": {
+        "nyholm/psr7": "^1.8",
+        "guzzlehttp/guzzle": "^7.9",
+        "besmartand-pro/php-quality-config": "^1.1",
+        "phpunit/phpunit": "^12.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "BeSmartAndPro\\BsapSensorClient\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BeSmartAndPro\\BsapSensorClient\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "phpcs": "phpcs --standard=vendor/besmartand-pro/php-quality-config/phpcs/phpcs.xml src tests",
+        "phpstan": "phpstan analyse -c vendor/besmartand-pro/php-quality-config/phpstan/base.neon src",
+        "qa": [
+            "@phpcs",
+            "@phpstan",
+            "@test"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "suggest": {
+        "guzzlehttp/guzzle": "PSR-18 transport for standalone PHP applications.",
+        "nyholm/psr7": "PSR-17 request factory for standalone PHP applications."
+    }
+}
